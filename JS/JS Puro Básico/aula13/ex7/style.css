@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #006666, #008080);
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  color: #333;
+  line-height: 1.6;
+}
+
+#content {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+#content h1 {
+  color: #006666;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+#content h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #009999;
+}
+
+#imcs-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 60px;
+  margin-bottom: 2.5rem;
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+}
+
+#imcs,
+#resultados {
+  flex: 1;
+}
+
+#imcs h2,
+#resultados h2 {
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  color: #006666;
+  font-size: 1.3rem;
+  position: relative;
+}
+
+#imcs h2::after,
+#resultados h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: #009999;
+}
+
+#imcs p,
+#resultados p {
+  padding: 8px 0;
+  margin: 8px 0;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+#imcs p:hover,
+#resultados p:hover {
+  background: rgba(0, 153, 153, 0.1);
+  border-radius: 4px;
+}
+
+#form_imc {
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#form_imc h1 {
+  color: #006666;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+#form_imc label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 600;
+}
+
+#form_imc input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+#form_imc input:focus {
+  outline: none;
+  border-color: #009999;
+  box-shadow: 0 0 0 2px rgba(0, 153, 153, 0.2);
+}
+
+button {
+  background: linear-gradient(to right, #009999, #007777);
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  background: linear-gradient(to right, #008080, #006666);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  #content {
+    padding: 1.5rem;
+  }
+
+  #imcs-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #form_imc {
+    padding: 1.5rem;
+  }
+}
+
+.resultado-imc {
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  font-size: 1.1em;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.resultado-imc.invalido {
+  background-color: #ffebee;
+  color: #c62828;
+  border-left: 4px solid #c62828;
+}
+
+.resultado-imc.abaixo-peso {
+  background-color: #fff3e0;
+  color: #e65100;
+  border-left: 4px solid #e65100;
+}
+
+.resultado-imc.normal {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border-left: 4px solid #2e7d32;
+}
+
+.resultado-imc.sobrepeso {
+  background-color: #fff8e1;
+  color: #f57f17;
+  border-left: 4px solid #f57f17;
+}
+
+.resultado-imc.obesidade-1 {
+  background-color: #ffecb3;
+  color: #ff8f00;
+  border-left: 4px solid #ff8f00;
+}
+
+.resultado-imc.obesidade-2 {
+  background-color: #ffccbc;
+  color: #d84315;
+  border-left: 4px solid #d84315;
+}
+
+.resultado-imc.obesidade-3 {
+  background-color: #ffcdd2;
+  color: #c62828;
+  border-left: 4px solid #c62828;
+}
+
+.resultado-imc strong {
+  font-weight: 600;
+}
