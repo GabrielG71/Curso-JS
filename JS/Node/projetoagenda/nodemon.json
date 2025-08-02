@@ -1,0 +1,6 @@
+{
+  "watch": ["src", "./routes.js", "./server.js"],
+  "ignore": ["public", "frontend", "node_modules"],
+  "ext": "js,json",
+  "exec": "node server.js"
+}

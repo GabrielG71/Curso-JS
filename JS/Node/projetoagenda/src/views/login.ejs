@@ -1,0 +1,76 @@
+<%- include('includes/head') %> <%- include('includes/nav') %>
+
+<div class="container my-5">
+  <h2 class="text-center mb-1">Criar conta ou Entrar</h2>
+  <p class="text-center text-muted mb-4 fs-6">
+    Faça login ou crie sua conta abaixo
+  </p>
+
+  <div class="row justify-content-center">
+    <div class="col-md-5 col-12">
+      <h5>Faça seu cadastro</h5>
+      <p class="mb-3">
+        Se você ainda não tem conta, preencha o formulário abaixo:
+      </p>
+      <form action="/register" method="POST" novalidate>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <div class="mb-3">
+          <label for="registerEmail" class="form-label">Seu e-mail</label>
+          <input
+            type="email"
+            class="form-control"
+            id="registerEmail"
+            name="email"
+            required
+            autocomplete="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="registerPassword" class="form-label">Sua senha</label>
+          <input
+            type="password"
+            class="form-control"
+            id="registerPassword"
+            name="password"
+            required
+            autocomplete="new-password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Criar minha conta</button>
+      </form>
+    </div>
+
+    <div class="col-md-5 col-12">
+      <h5>Faça seu login</h5>
+      <p class="mb-3">Se você já tem uma conta, faça login abaixo:</p>
+      <form action="/login" method="POST" novalidate>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <div class="mb-3">
+          <label for="loginEmail" class="form-label">Seu e-mail</label>
+          <input
+            type="email"
+            class="form-control"
+            id="loginEmail"
+            name="email"
+            required
+            autocomplete="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="loginPassword" class="form-label">Sua senha</label>
+          <input
+            type="password"
+            class="form-control"
+            id="loginPassword"
+            name="password"
+            required
+            autocomplete="current-password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('includes/footer') %>
